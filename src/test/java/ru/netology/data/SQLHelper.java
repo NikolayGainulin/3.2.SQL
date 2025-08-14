@@ -3,7 +3,7 @@ package ru.netology.web.data;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-
+import ru.netology.web.data.DataHelper.VerificationCode;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

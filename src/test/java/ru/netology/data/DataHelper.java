@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Value;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class DataHelper {
     private DataHelper() {
