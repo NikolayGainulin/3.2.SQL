@@ -2,11 +2,11 @@ package ru.netology.web.test;
 
 import org.junit.jupiter.api.*;
 import ru.netology.web.data.DataHelper;
-import ru.netology.web.pages.LoginPage;
+import ru.netology.web.data.SQLHelper;
+import ru.netology.web.page.LoginPage;
+import ru.netology.web.page.VerificationPage;
 
 import static com.codeborne.selenide.Selenide.open;
-import static ru.netology.web.data.SQLHelper.cleanAuthCodes;
-import static ru.netology.web.data.SQLHelper.cleanDatabase;
 
 public class BankLoginTest {
     LoginPage loginPage;
@@ -14,14 +14,13 @@ public class BankLoginTest {
 
     @AfterAll
     static void tearDownAll() {
-        cleanDatabase();
+        SQLHelper.cleanDatabase();
     }
 
     @AfterEach
     void tearDown() {
-        cleanAuthCodes();
+        SQLHelper.cleanAuthCodes();
     }
-
 
     @BeforeEach
     void setUp() {
@@ -32,9 +31,8 @@ public class BankLoginTest {
     @DisplayName("Should successfully login to dashboard with exist login and password from sut test data")
     void shouldBeSuccessfulLogin() {
         var verificationPage = loginPage.validLogin(authInfo);
-        var verificationCode = ru.netology.web.data.SQLHelper.getVerificationCode();
+        var verificationCode = SQLHelper.getVerificationCode();
         verificationPage.validVerify(verificationCode.getCode());
-
     }
 
     @Test

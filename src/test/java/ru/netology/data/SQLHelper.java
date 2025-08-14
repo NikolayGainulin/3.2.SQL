@@ -19,7 +19,7 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static ru.netology.web.data.DataHelper.VerificationCode getVerificationCode() {
+    public static DataHelper.VerificationCode getVerificationCode() {
         var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         try (var conn = getConn()) {
             return QUERY_RUNNER.query(conn, codeSQL, new BeanHandler<>(DataHelper.VerificationCode.class));

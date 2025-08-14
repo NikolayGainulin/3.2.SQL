@@ -1,10 +1,9 @@
-package ru.netology.web.pages;
+package ru.netology.web.page;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
-import ru.netology.web.pages.DashboardPage;
 
 public class DashboardPage {
     private SelenideElement heading = $("[data-test-id='dashboard']");

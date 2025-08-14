@@ -1,4 +1,4 @@
-package ru.netology.web.pages;
+package ru.netology.web.page;
 
 import com.codeborne.selenide.SelenideElement;
 
@@ -19,9 +19,9 @@ public class VerificationPage {
         errorNotification.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 
-    public ru.netology.web.pages.DashboardPage validVerify(String verificationCode) {
+    public DashboardPage validVerify(String verificationCode) {
         verify(verificationCode);
-        return new ru.netology.web.pages.DashboardPage();
+        return new DashboardPage();
     }
 
     public void verify(String verificationCode) {
