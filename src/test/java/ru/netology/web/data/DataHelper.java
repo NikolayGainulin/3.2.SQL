@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Value;
-
 import java.util.Locale;
-import java.util.Random;
 
 public class DataHelper {
     private DataHelper() {
@@ -38,6 +36,14 @@ public class DataHelper {
     public static class AuthInfo {
         private String login;
         private String password;
+
+        public String getLogin() {
+            return login;  // Возвращаем поле login
+        }
+
+        public String getPassword() {
+            return password;  // Возвращаем поле password
+        }
     }
 
     @Data
@@ -45,5 +51,9 @@ public class DataHelper {
     @AllArgsConstructor
     public static class VerificationCode {
         String code;
+
+        public String getCode() {
+            return code;  // Возвращаем поле code
+        }
     }
 }

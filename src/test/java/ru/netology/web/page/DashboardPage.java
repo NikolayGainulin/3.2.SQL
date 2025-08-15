@@ -1,7 +1,7 @@
 package ru.netology.web.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Condition;
 
 import static com.codeborne.selenide.Selenide.$;
 

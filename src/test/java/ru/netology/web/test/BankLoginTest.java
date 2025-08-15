@@ -5,6 +5,8 @@ import ru.netology.web.data.DataHelper;
 import ru.netology.web.data.SQLHelper;
 import ru.netology.web.pages.LoginPage;
 
+import java.sql.SQLException;
+
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.web.data.SQLHelper.cleanAuthCodes;
 import static ru.netology.web.data.SQLHelper.cleanDatabase;
@@ -14,12 +16,12 @@ public class BankLoginTest {
     DataHelper.AuthInfo authInfo = DataHelper.getAuthInfoWithTestData();
 
     @AfterAll
-    static void tearDownAll() {
+    static void tearDownAll() throws SQLException {
         cleanDatabase();
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown() throws SQLException {
         cleanAuthCodes();
     }
 
@@ -30,7 +32,7 @@ public class BankLoginTest {
 
     @Test
     @DisplayName("Should successfully login to dashboard with exist login and password from sut test data")
-    void shouldBeSuccessfulLogin() {
+    void shouldBeSuccessfulLogin() throws SQLException {
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = SQLHelper.getVerificationCode();
         verificationPage.validVerify(verificationCode.getCode());

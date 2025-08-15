@@ -3,7 +3,7 @@ package ru.netology.web.data;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import ru.netology.web.data.DataHelper.VerificationCode;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,7 +19,7 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static DataHelper.VerificationCode getVerificationCode() {
+    public static DataHelper.VerificationCode getVerificationCode() throws SQLException {
         var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         try (var conn = getConn()) {
             return QUERY_RUNNER.query(conn, codeSQL, new BeanHandler<>(DataHelper.VerificationCode.class));
@@ -27,7 +27,7 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static void cleanDatabase() {
+    public static void cleanDatabase() throws SQLException {
         try (var conn = getConn()) {
             QUERY_RUNNER.execute(conn, "DELETE FROM auth_codes");
             QUERY_RUNNER.execute(conn, "DELETE FROM card_transactions");
@@ -37,7 +37,7 @@ public class SQLHelper {
     }
 
     @SneakyThrows
-    public static void cleanAuthCodes() {
+    public static void cleanAuthCodes() throws SQLException {
         try (var conn = getConn()) {
             QUERY_RUNNER.execute(conn, "DELETE FROM auth_codes");
         }

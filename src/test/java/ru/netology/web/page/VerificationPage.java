@@ -19,9 +19,9 @@ public class VerificationPage {
         errorNotification.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 
-    public DashboardPage validVerify(String verificationCode) {
+    public ru.netology.web.pages.DashboardPage validVerify(String verificationCode) {
         verify(verificationCode);
-        return new DashboardPage();
+        return new ru.netology.web.pages.DashboardPage();
     }
 
     public void verify(String verificationCode) {

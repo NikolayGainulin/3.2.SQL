@@ -17,9 +17,9 @@ public class LoginPage {
         errorNotification.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 
-    public VerificationPage validLogin(DataHelper.AuthInfo info) {
+    public ru.netology.web.pages.VerificationPage validLogin(DataHelper.AuthInfo info) {
         login(info);
-        return new VerificationPage();
+        return new ru.netology.web.pages.VerificationPage();
     }
 
     public void login(DataHelper.AuthInfo info) {
