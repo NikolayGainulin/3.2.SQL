@@ -1,4 +1,4 @@
-package ru.netology.web.pages;
+package ru.netology.web.page;
 
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
@@ -17,9 +17,9 @@ public class LoginPage {
         errorNotification.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 
-    public ru.netology.web.pages.VerificationPage validLogin(DataHelper.AuthInfo info) {
+    public ru.netology.web.page.VerificationPage validLogin(DataHelper.AuthInfo info) {
         login(info);
-        return new ru.netology.web.pages.VerificationPage();
+        return new ru.netology.web.page.VerificationPage();
     }
 
     public void login(DataHelper.AuthInfo info) {

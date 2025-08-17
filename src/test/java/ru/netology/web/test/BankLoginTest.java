@@ -3,7 +3,7 @@ package ru.netology.test;
 import org.junit.jupiter.api.*;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.data.SQLHelper;
-import ru.netology.web.pages.LoginPage;
+import ru.netology.web.page.LoginPage;
 
 import java.sql.SQLException;
 
